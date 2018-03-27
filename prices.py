@@ -3,14 +3,14 @@ import requests
 from time import gmtime, strftime, sleep
 import sqlite3
 
-
+dbname = 'monero.db'
 monero_prices = {}
 prices = []
 times = []
 
 
-def createSQLdb():
-	conn = sqlite3.connect('monero.db')
+def createSQLdb(in1):
+	conn = sqlite3.connect('in1')
 	c = conn.cursor()
 	c.execute('''CREATE TABLE historicaldata
              (date text, open real, high real, low real, close real)''')
@@ -34,7 +34,13 @@ def runningPrice():
 
 def historicalData():
 	data = {}
-	r = requests.get('https://coinmarketcap.com/currencies/monero/historical-data/')
+	r = requests.get('httpteSQLdb():
+	conn = sqlite3.connect('monero.db')
+	c = conn.cursor()
+	c.execute('''CREATE TABLE historicaldata
+             (date text, open real, high real, low real, close real)''')
+	conn.commit()
+conn.close()https://www.coinmarketcap.com/currencies/monero/historical-data/')
 	soup = BeautifulSoup(r.content, 'lxml')
 	value = lambda td: td.attrs.get('data-format-value', td.text)
 	for row in soup.select('table.table tbody tr'):
@@ -42,8 +48,7 @@ def historicalData():
 		for i in data:
 			print(data)
 			
-
-
-
-historicalData()
-runningPrice()
+if __name__ == '__main __':
+	createSQLdb(dbname)
+	historicalData()
+	runningPrice()
