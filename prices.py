@@ -40,7 +40,7 @@ def historicalData():
 	c.execute('''CREATE TABLE historicaldata
              (date text, open real, high real, low real, close real)''')
 	conn.commit()
-conn.close()https://www.coinmarketcap.com/currencies/monero/historical-data/')
+	conn.close()https://www.coinmarketcap.com/currencies/monero/historical-data/')
 	soup = BeautifulSoup(r.content, 'lxml')
 	value = lambda td: td.attrs.get('data-format-value', td.text)
 	for row in soup.select('table.table tbody tr'):
